@@ -150,7 +150,12 @@ State Machine Function Definitions
 /* What does this state do? */
 static void UserApp1SM_Idle(void)
 {
-    
+  if (IsButtonPressed(BUTTON0)){
+    LedOn(WHITE);
+  }
+  else{
+    LedOff(WHITE);
+  }
 
 }
 /* end UserApp1SM_Idle() */
