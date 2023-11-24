@@ -168,7 +168,12 @@ static void UserApp1SM_Idle(void)
     bYellowBlink = TRUE;
     LedBlink(YELLOW, LED_1HZ);
   }
-
+  if(IsButtonHeld(BUTTON3,2000)){
+    LedOn(CYAN);
+  }
+  else{
+    LedOff(CYAN);
+  }
 }
 /* end UserApp1SM_Idle() */
      
