@@ -150,11 +150,23 @@ State Machine Function Definitions
 /* What does this state do? */
 static void UserApp1SM_Idle(void)
 {
+  static bool bYellowBlink = FALSE;
   if (IsButtonPressed(BUTTON0)){
     LedOn(WHITE);
   }
   else{
     LedOff(WHITE);
+  }
+  if (WasButtonPressed(BUTTON1)){
+    ButtonAcknowledge(BUTTON1);
+    if(bYellowBlink){
+      bYellowBlink = FALSE;
+      LedOff(YELLOW);
+  }
+  }
+  else{
+    bYellowBlink = TRUE;
+    LedBlink(YELLOW, LED_1HZ);
   }
 
 }
