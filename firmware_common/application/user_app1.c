@@ -170,6 +170,20 @@ static void UserApp1SM_Idle(void)
     if (u8Counter == 16){
       u8Counter = 0;
     }
+    u8ColorIndex++;
+    if(u8ColorIndex == 7){
+      u8ColorIndex = 0;
+    }
+    switch(u8ColorIndex){
+      case 0:
+        LedOn(LCD_RED);
+        LedOn(LCD_GREEN);
+        LedOn(LCD_BLUE);
+        break;
+      case 1:
+        LedOn(LCD_RED);
+        LedOff(LCD_GREEN);
+  }
     
     if (u8Counter & 0x01){
       LedOn(RED);
@@ -196,20 +210,9 @@ static void UserApp1SM_Idle(void)
       LedOff(GREEN);
     }
   }
-  u8ColorIndex++;
-  if(u8ColorIndex == 7){
-    u8ColorIndex = 0;
-  }
+
   
-  switch(u8ColorIndex){
-    case 0:
-      LedOn(LCD_RED);
-      LedOn(LCD_GREEN);
-      LedOn(LCD_BLUE);
-    case 1:
-      LedOn(LCD_RED);
-      LedOff(LCD_GREEN);
-  }
+
 }
 /* end UserApp1SM_Idle() */
      
